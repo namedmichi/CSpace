@@ -8,17 +8,10 @@ namespace HalloWelt
         static double totalTaxes = 0;
 
         static object[,] table = {
-            {"Pflegespülung Plus", 3, 7.95} ,     /*  Erste Reihe */
-            {"Conditioner Tropical", 1, 5.95} ,   /*  Zweite Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99} ,    /*  Dritte Reihe */
-            {"Antischuppen Special", 5, 9.99}     /*  Dritte Reihe */
+            {"Pflegespülung Plus", 3, 7.95} ,     
+            {"Conditioner Tropical", 1, 5.95} ,   
+            {"Antischuppen Special", 5, 9.99}     
+
         };
 
         static void Main(string[] args)
@@ -43,7 +36,7 @@ namespace HalloWelt
 
             printShippingCosts();
 
-            // Print total sum
+           
             Console.WriteLine("");
             Console.WriteLine("Gesamtsumme \t\t Ust.: " + Math.Round(totalTaxes, 2) + "€\t\t" + totalPrice + "€");
         }
