@@ -10,11 +10,11 @@ namespace HelloWorld
             Console.WriteLine("Hello World!");
             object[,] obj =
             {
-                {"Michi", 17 + "jr"},
-                {"Michael", 30 + "sn"}
+                {"Michi", 17 + " jr"},
+                {"Michael", 30 + " sn"}
             };
 
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 2; i++)
             {
 
                 for (int j = 0; j < 2; j++)
