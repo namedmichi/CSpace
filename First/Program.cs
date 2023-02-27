@@ -10,7 +10,7 @@ namespace HelloWorld
             Console.WriteLine("Hello World!");
             object[,] obj =
             {
-                {"Michi", 17 , " jr"},
+                {"Michi", 17 , " testt"},
                 {"Michael", 30 , " sn"}
             };
 
