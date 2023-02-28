@@ -15,11 +15,21 @@ namespace myFirst
         public Form1()
         {
             InitializeComponent();
+            
         }
-
+        int i = 1;
         private void button1_Click(object sender, EventArgs e)
         {
 
+            button1.Text = "Hallo Welt zum " + i;
+            i++;
+
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            i = 1;
+            button1.Text = "Hallo Welt zum " + i;
         }
     }
 }
