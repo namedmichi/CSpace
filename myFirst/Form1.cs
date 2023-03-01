@@ -13,12 +13,13 @@ namespace myFirst
     public partial class Form1 : Form
     {
         int b3ersaz = 1;
+        int i = 0;
         public Form1()
         {
             InitializeComponent();
             
         }
-        int i = 0;
+        
         private void button1_Click(object sender, EventArgs e)
         {
             i = i + b3ersaz;
