@@ -17,7 +17,7 @@ namespace DateTime
         int c = 0;
         string newLine = Environment.NewLine;
 
-        String[] zeit = new String[];
+        String[] zeit = new String[13];
         public Form1()
         {
             InitializeComponent();
