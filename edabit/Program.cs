@@ -1,11 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace edabit
 {
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
+        public Person(string firstname, string lastname, int age) 
+        {
+            FirstName = firstname;
+            LastName = lastname;
+            Age = age;
+        }
+        public Person() 
+        {
+        }
+    }
     internal class Program
     {
         static int[][] testArray = new int[][] {
@@ -20,6 +38,15 @@ namespace edabit
             //Console.WriteLine(ReverseCase("Test"));
             //Console.WriteLine("[{0}]", string.Join(", ", FindLargest( testArray )));
 
+            List<Person> personen = new List<Person>()
+                { 
+                    new Person("test", "test1", 18),
+                    new Person("test", "test2", 18),
+                    new Person("test", "test3", 18)
+                    
+
+                };
+            WriteXML(personen);
         }
 
         static string[] ArrayOfMultiples(int zahl, int len)
@@ -82,8 +109,16 @@ namespace edabit
             }
 
             return largest;
-
         }
+        public static void WriteXML(List<Person> person)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
+            using (FileStream stream = new FileStream("Personen.xml", FileMode.Create))
+            {
+                serializer.Serialize(stream, person);
+            } 
+        }
+
 
 
 
