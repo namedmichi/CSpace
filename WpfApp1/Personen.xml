@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ArrayOfPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Person>
+    <FirstName>Michi</FirstName>
+    <LastName>Selb</LastName>
+    <Age>17</Age>
+  </Person>
+  <Person>
+    <FirstName>Dani</FirstName>
+    <LastName>Jacob</LastName>
+    <Age>30</Age>
+  </Person>
+  <Person>
+    <FirstName>Samy</FirstName>
+    <LastName>Droc</LastName>
+    <Age>18</Age>
+  </Person>
+  <Person>
+    <FirstName>Marko</FirstName>
+    <LastName>Serbe</LastName>
+    <Age>17</Age>
+  </Person>
+  <Person>
+    <FirstName>Max</FirstName>
+    <LastName>Musterman</LastName>
+    <Age>23</Age>
+  </Person>
+  <Person>
+    <FirstName>David</FirstName>
+    <LastName>Wagner</LastName>
+    <Age>25</Age>
+  </Person>
+  <Person>
+    <FirstName>Neuer</FirstName>
+    <LastName>Test</LastName>
+    <Age>69</Age>
+  </Person>
+
+</ArrayOfPerson>

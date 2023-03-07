@@ -43,6 +43,7 @@ namespace edabit
 
 
         }
+
         
           
     internal class Program
@@ -70,7 +71,7 @@ namespace edabit
                 WriteXML(personen);
                 List<Person> personenn = Person.ReadXML();
                 Person p1 = personenn[0];
-                Console.WriteLine(p1.LastName);
+                Console.WriteLine(p1.FirstName);
         }
 
         static string[] ArrayOfMultiples(int zahl, int len)
