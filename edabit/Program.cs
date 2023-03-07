@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
+
 namespace edabit
 {
     public class Person
@@ -14,16 +15,36 @@ namespace edabit
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public Person(string firstname, string lastname, int age) 
+        public Person(string firstname, string lastname, int age)
         {
             FirstName = firstname;
             LastName = lastname;
             Age = age;
         }
-        public Person() 
+        public Person()
         {
         }
-    }
+        public static void WriteXML(List<Person> person)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
+            using (FileStream stream = new FileStream("Personen.xml", FileMode.Create))
+            {
+                serializer.Serialize(stream, person);
+            }
+        }
+        public static List<Person> ReadXML()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
+
+            using (StreamReader sr = new StreamReader("Personen.xml"))
+            {
+                return (List<Person>)serializer.Deserialize(sr);
+            }
+
+
+        }
+        
+          
     internal class Program
     {
         static int[][] testArray = new int[][] {
@@ -31,7 +52,7 @@ namespace edabit
         new int[] { 4, 5 },
         new int[] { 6 },
         new int[] { 7, 8, 9, 10 }
-};
+        };
         static void Main(string[] args)
         {
             //Console.WriteLine("[{0}]", string.Join(", ", ArrayOfMultiples(10, 10)));
@@ -40,13 +61,16 @@ namespace edabit
 
             List<Person> personen = new List<Person>()
                 { 
-                    new Person("test", "test1", 18),
-                    new Person("test", "test2", 18),
-                    new Person("test", "test3", 18)
+                    new Person("Michi", "Selb", 17),
+                    new Person("Dani", "Jacob", 30),
+                    new Person("Samy", "Droc", 18)
                     
 
                 };
-            WriteXML(personen);
+                WriteXML(personen);
+                List<Person> personenn = Person.ReadXML();
+                Person p1 = personenn[0];
+                Console.WriteLine(p1.LastName);
         }
 
         static string[] ArrayOfMultiples(int zahl, int len)
@@ -110,15 +134,7 @@ namespace edabit
 
             return largest;
         }
-        public static void WriteXML(List<Person> person)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
-            using (FileStream stream = new FileStream("Personen.xml", FileMode.Create))
-            {
-                serializer.Serialize(stream, person);
-            } 
-        }
-
+}
 
 
 
