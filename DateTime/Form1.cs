@@ -41,6 +41,7 @@ namespace DateTime
         {
             if  (textBox2.Text != "" )
             {
+
                 teil = int.Parse(textBox2.Text);
                 textBox1.Visible= true; textBoxNr.Visible= true; label1.Visible= true;button1.Visible= true; 
                 textBox2.Visible= false;label2.Visible= false;button2.Visible= false;

@@ -18,7 +18,7 @@ namespace edabit
         {
             //Console.WriteLine("[{0}]", string.Join(", ", ArrayOfMultiples(10, 10)));
             //Console.WriteLine(ReverseCase("Test"));
-            Console.WriteLine("[{0}]", string.Join(", ", FindLargest( testArray )));
+            //Console.WriteLine("[{0}]", string.Join(", ", FindLargest( testArray )));
 
         }
 
