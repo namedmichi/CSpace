@@ -29,6 +29,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             var Person = new Person();
+            Anzeigen_Click(null, null);
 
         }
         static Person[] refresh()
@@ -66,7 +67,6 @@ namespace WpfApp1
                 personenn.Add(tempPerson);
                 Person.WriteXML(personenn);
                 refresh();
-                Anzeigen_Click(null ,null);
 
             }
             catch
@@ -87,7 +87,10 @@ namespace WpfApp1
                     txtFirst.Text = vor;
                     txtLast.Text = nach;
                     txtAge.Text = age;
-                }
+                    newFirst.Text = vor;
+                    newLast.Text = nach;
+                    newAge.Text = age;
+            }
                 catch(NullReferenceException ex)
                 {
                     return;
@@ -106,9 +109,29 @@ namespace WpfApp1
             ;
             personenn.RemoveAt(tempint - 1);
             Person.WriteXML(personenn);
+            
             refresh();
             Anzeigen_Click(null, null);
 
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            List<Person> personenn = Person.ReadXML();
+            int index = contactsList.SelectedIndex;
+            try
+            {
+                Person tempPerson = new Person(newFirst.Text, newLast.Text, int.Parse(newAge.Text));
+                personenn[index] = tempPerson;
+                Person.WriteXML(personenn);
+                refresh();
+                Anzeigen_Click(null, null);
+
+            }
+            catch
+            {
+                MessageBox.Show("Bitte die Daten richtig eingeben");
+            }
         }
     }
 }

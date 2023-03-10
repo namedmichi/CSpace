@@ -15,16 +15,17 @@
         <Border BorderBrush="Black" BorderThickness="1" Height="40" Width="156" Canvas.Left="47" Canvas.Top="87" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Content="Vorname" Canvas.Left="52" Canvas.Top="56" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label Content="Nachname" Canvas.Left="47" Canvas.Top="129" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Label Content="Age" Canvas.Left="47" Canvas.Top="205"/>
-        <Button Content="Anzeigen" Canvas.Left="395" Canvas.Top="125" Height="30" Width="104" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Anzeigen_Click"/>
+        <Label Content="Alter" Canvas.Left="47" Canvas.Top="205"/>
+        <Button Content="Anzeigen" Canvas.Left="395" Canvas.Top="125" Height="30" Width="104" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Anzeigen_Click" />
         <TextBox x:Name="newAge" Canvas.Left="598" TextWrapping="Wrap"  Canvas.Top="346" Width="120"/>
         <TextBox x:Name="newLast" Canvas.Left="598" TextWrapping="Wrap"  Canvas.Top="301" Width="120"/>
         <TextBox x:Name="newFirst" Canvas.Left="598" TextWrapping="Wrap"  Canvas.Top="263" Width="120"/>
-        <Button x:Name="btnNewContact" Content="Neuer Kontakt" Canvas.Left="465" Canvas.Top="284" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Height="43" Click="btnNewContact_Click"/>
+        <Button x:Name="btnNewContact" Content="Neuer Kontakt" Canvas.Left="465" Canvas.Top="258" HorizontalAlignment="Center" VerticalAlignment="Top" Width="113" Height="43" Click="btnNewContact_Click"/>
         <ListBox Name="contactsList" Height="171" Width="206" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Top="65" HorizontalAlignment="Left" Canvas.Left="504" VerticalAlignment="Top" SelectionChanged="contactsList_SelectionChanged"/>
         <Label Content="Vorname" Canvas.Left="604" Canvas.Top="236" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Nachname" Canvas.Left="604" Canvas.Top="275" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Age" Canvas.Left="607" Canvas.Top="320" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="Alter" Canvas.Left="607" Canvas.Top="320" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Button x:Name="btnDelete" Content="Löschen" Canvas.Left="398" Canvas.Top="167" Height="26" Width="98" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnDelete_Click"/>
+        <Button x:Name="btnEdit" Content="Edit Kontakt" Canvas.Left="465" Canvas.Top="312" Width="113" Height="43" Click="btnEdit_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Canvas>
 </Window>
