@@ -18,6 +18,7 @@ namespace DateTime
         string newLine = Environment.NewLine;
 
         List<string> zeit = new List<string>();
+        List<int> nr = new List<int>();
         public Form1()
         {
             InitializeComponent();
@@ -30,9 +31,17 @@ namespace DateTime
                 MessageBox.Show("Liste voll");
                 return;
              }
+            
+            if (nr.Contains(int.Parse(textBoxNr.Text)))
+            {
+                MessageBox.Show("Nr. schon vorhanden");
+                return;
+            }
+
+            nr.Add(int.Parse(textBoxNr.Text));
             zeit.Add(System.DateTime.Now.TimeOfDay.ToString());
             label3.Text = c+1 + "/" + teil + " Teilnehmern sind schon im Ziel";
-            textBox1.Text = textBox1.Text + newLine + "Nr." + textBoxNr.Text.ToString() + "       " + zeit[c].ToString();
+            textBox1.Text = textBox1.Text  + "Nr." + nr[c] + "       " + zeit[c].ToString() + newLine;
             label3.Visible= true;
             c++;
         }

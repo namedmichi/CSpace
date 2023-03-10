@@ -57,9 +57,6 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(200, 223);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "                                                                                 " +
-    "                                                                                " +
-    "         ";
             this.textBox1.Visible = false;
             // 
             // textBoxNr
