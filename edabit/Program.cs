@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
@@ -56,23 +58,35 @@ namespace edabit
         };
         static void Main(string[] args)
         {
-            //Console.WriteLine("[{0}]", string.Join(", ", ArrayOfMultiples(10, 10)));
-            //Console.WriteLine(ReverseCase("Test"));
-            //Console.WriteLine("[{0}]", string.Join(", ", FindLargest( testArray )));
+                //Console.WriteLine("[{0}]", string.Join(", ", ArrayOfMultiples(10, 10)));
+                //Console.WriteLine(ReverseCase("Test"));
+                //Console.WriteLine("[{0}]", string.Join(", ", FindLargest( testArray )));
 
-            List<Person> personen = new List<Person>()
-                { 
-                    new Person("Michi", "Selb", 17),
-                    new Person("Dani", "Jacob", 30),
-                    new Person("Samy", "Droc", 18)
-                    
+                //List<Person> personen = new List<Person>()
+                //    { 
+                //        new Person("Michi", "Selb", 17),
+                //        new Person("Dani", "Jacob", 30),
+                //        new Person("Samy", "Droc", 18)
+                //        
+                //
+                //    };
+                //    WriteXML(personen);
+                //    List<Person> personenn = Person.ReadXML();
+                //    Person p1 = personenn[0];
+                //    Console.WriteLine(p1.FirstName);
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
+                Thread.Sleep(1000);
+                
+                // Get the elapsed time as a TimeSpan value.
+                TimeSpan ts = stopWatch.Elapsed;
 
-                };
-                WriteXML(personen);
-                List<Person> personenn = Person.ReadXML();
-                Person p1 = personenn[0];
-                Console.WriteLine(p1.FirstName);
-        }
+                // Format and display the TimeSpan value.
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                    ts.Hours, ts.Minutes, ts.Seconds,
+                    ts.Milliseconds / 10);
+                Console.WriteLine("RunTime " + elapsedTime);
+            }
 
         static string[] ArrayOfMultiples(int zahl, int len)
         {
