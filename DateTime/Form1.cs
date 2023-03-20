@@ -50,7 +50,7 @@ namespace DateTime
 
             zeit.Add(elapsedTime);
             timespan.Add(ts);
-            TimeSpan firstT = timespan[0];
+            TimeSpan firstT = timespan[0];  
             TimeSpan curT = timespan[c];
             TimeSpan dif = curT - firstT;
             string diff = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
