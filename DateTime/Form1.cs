@@ -19,6 +19,7 @@ namespace DateTime
         string newLine = Environment.NewLine;
 
         List<string> zeit = new List<string>();
+        List<TimeSpan> timespan = new List<TimeSpan>();
         List<int> nr = new List<int>();
         Stopwatch stopWatch = new Stopwatch();
         
@@ -48,9 +49,17 @@ namespace DateTime
                 ts.Milliseconds / 10);
 
             zeit.Add(elapsedTime);
+            timespan.Add(ts);
+            TimeSpan firstT = timespan[0];
+            TimeSpan curT = timespan[c];
+            TimeSpan dif = curT - firstT;
+            string diff = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            dif.Hours, dif.Minutes, dif.Seconds,
+            dif.Milliseconds / 10);
+
             nr.Add(int.Parse(textBoxNr.Text));
             label3.Text = c+1 + "/" + teil + " Teilnehmern sind schon im Ziel";
-            listBox1.Items.Add("Nr." + nr[c] + "       " + zeit[c]);
+            listBox1.Items.Add("Nr." + String.Format("{0:000}", nr[c]) + "       " + zeit[c]+ "  +" + diff );
             label3.Visible= true;
             c++;
         }
@@ -77,14 +86,27 @@ namespace DateTime
                 }
                 nr[index] = int.Parse(textBoxNr.Text);
 
-                listBox1.Items[index] = "Nr." + nr[index] + "       " + zeit[index].ToString();
+                listBox1.Items[index] = "Nr." + nr[index].ToString("000") + "       " + zeit[index].ToString();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-                listBox1.Visible= true; textBoxNr.Visible= true; label1.Visible= true;button1.Visible= true;  btnEdit.Visible=true;
+                listBox1.Visible= true; textBoxNr.Visible= true; label1.Visible= true;button1.Visible= true; button4.Visible = true; btnEdit.Visible=true;
                 stopWatch.Start();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int index = listBox1.SelectedIndex;
+            if (index != -1)
+            {
+                nr.RemoveAt(index);
+                zeit.RemoveAt(index);
+                timespan.RemoveAt(index);
+                listBox1.Items.RemoveAt(index);
+                c -= 1;
+            }
         }
     }
 }
