@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "edabit", "edabit\edabit.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{870C1915-5ADC-47A7-B58C-E690E7AFA843}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistik", "Statistik\Statistik.csproj", "{C69B21AF-6119-408A-A367-EB7CFE0190D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{870C1915-5ADC-47A7-B58C-E690E7AFA843}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{870C1915-5ADC-47A7-B58C-E690E7AFA843}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{870C1915-5ADC-47A7-B58C-E690E7AFA843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69B21AF-6119-408A-A367-EB7CFE0190D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69B21AF-6119-408A-A367-EB7CFE0190D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69B21AF-6119-408A-A367-EB7CFE0190D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69B21AF-6119-408A-A367-EB7CFE0190D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
