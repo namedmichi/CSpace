@@ -21,6 +21,7 @@ namespace DateTime
         List<string> zeit = new List<string>();
         List<TimeSpan> timespan = new List<TimeSpan>();
         List<int> nr = new List<int>();
+        List<string> diffList = new List<string>();
         Stopwatch stopWatch = new Stopwatch();
         
         public Form1()
@@ -56,6 +57,7 @@ namespace DateTime
             string diff = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
             dif.Hours, dif.Minutes, dif.Seconds,
             dif.Milliseconds / 10);
+            diffList.Add(diff);
 
             nr.Add(int.Parse(textBoxNr.Text));
             label3.Text = c+1 + "/" + teil + " Teilnehmern sind schon im Ziel";
@@ -86,7 +88,7 @@ namespace DateTime
                 }
                 nr[index] = int.Parse(textBoxNr.Text);
 
-                listBox1.Items[index] = "Nr." + nr[index].ToString("000") + "       " + zeit[index].ToString();
+                listBox1.Items[index] = "Nr." + String.Format("{0:000}", nr[index]) + "       " + zeit[index] + "  +" + diffList[index] ;
             }
         }
 
