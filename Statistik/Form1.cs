@@ -71,6 +71,7 @@ namespace Statistik
            button1.Height = button1.Height + zurück;
             heigt = button1.Height;
             reverse.RemoveAt(reverse.Count - 1);
+            
 
         }
 
