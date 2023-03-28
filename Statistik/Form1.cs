@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text;
+using System.IO;
 
 namespace Statistik
 {
@@ -21,6 +23,7 @@ namespace Statistik
         int fixPos = 527;
         List<int> reverse = new List<int>();
         int heigt = 500;
+        string path = @"C:\Users\selbertinger\Desktop\workspaces\CSpace\Statistik\MyTest.txt";
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -97,5 +100,10 @@ namespace Statistik
             button1.Location = new Point(button1.Location.X, fixPos - offset);
         }
 
+        private void save_Click(object sender, EventArgs e)
+        {
+            string createText = (button1.Height / 5).ToString() + "% " + DateTime.Now.TimeOfDay + "  " + DateTime.Now.Date;
+            File.WriteAllText(path, createText);
+        }
     }
 }

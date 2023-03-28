@@ -36,6 +36,7 @@
             this.zurück = new System.Windows.Forms.Button();
             this.set = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.save = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,11 +112,22 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 7;
             // 
+            // save
+            // 
+            this.save.Location = new System.Drawing.Point(535, 229);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(130, 37);
+            this.save.TabIndex = 8;
+            this.save.Text = "Speichern";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 575);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.set);
             this.Controls.Add(this.zurück);
@@ -142,6 +154,7 @@
         private System.Windows.Forms.Button zurück;
         private System.Windows.Forms.Button set;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button save;
     }
 }
 
