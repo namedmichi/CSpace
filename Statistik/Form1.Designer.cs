@@ -37,6 +37,8 @@
             this.set = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.save = new System.Windows.Forms.Button();
+            this.read = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             // 
             // set
             // 
-            this.set.Location = new System.Drawing.Point(656, 330);
+            this.set.Location = new System.Drawing.Point(321, 404);
             this.set.Name = "set";
             this.set.Size = new System.Drawing.Size(132, 68);
             this.set.TabIndex = 6;
@@ -107,7 +109,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(535, 355);
+            this.textBox2.Location = new System.Drawing.Point(321, 378);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 7;
@@ -122,11 +124,31 @@
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
+            // read
+            // 
+            this.read.Location = new System.Drawing.Point(535, 272);
+            this.read.Name = "read";
+            this.read.Size = new System.Drawing.Size(130, 37);
+            this.read.TabIndex = 9;
+            this.read.Text = "Lesen";
+            this.read.UseVisualStyleBackColor = true;
+            this.read.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(535, 337);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(284, 164);
+            this.textBox3.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 575);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.read);
             this.Controls.Add(this.save);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.set);
@@ -155,6 +177,8 @@
         private System.Windows.Forms.Button set;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button read;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

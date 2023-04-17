@@ -23,7 +23,7 @@ namespace Statistik
         int fixPos = 527;
         List<int> reverse = new List<int>();
         int heigt = 500;
-        string path = @"C:\Users\selbertinger\Desktop\workspaces\CSpace\Statistik\MyTest.txt";
+        string path = @"C:\Users\selbertinger\Desktop\workspaces\CSpace\Statistik\MyTest.csv";
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -102,8 +102,13 @@ namespace Statistik
 
         private void save_Click(object sender, EventArgs e)
         {
-            string createText = (button1.Height / 5).ToString() + "% " + DateTime.Now.TimeOfDay + "  " + DateTime.Now.Date;
-            File.WriteAllText(path, createText);
+            string createText = (button1.Height / 5).ToString() + "%;" + DateTime.Now.TimeOfDay + ";" + DateTime.Now.Day + Environment.NewLine;
+            File.AppendAllText(path, createText);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = File.ReadAllText(path);
         }
     }
 }
