@@ -24,6 +24,7 @@ namespace Statistik
         List<int> reverse = new List<int>();
         int heigt = 500;
         string path = @"C:\Users\selbertinger\Desktop\workspaces\CSpace\Statistik\MyTest.csv";
+        string ende;
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -102,8 +103,21 @@ namespace Statistik
 
         private void save_Click(object sender, EventArgs e)
         {
-            string createText = (button1.Height / 5).ToString() + "%;" + DateTime.Now.TimeOfDay + ";" + DateTime.Now.Day + Environment.NewLine;
+            if (textBox3.Lines.Any())
+            {
+                ende = textBox3.Lines[textBox3.Lines.Length - 2] + Environment.NewLine;
+                MessageBox.Show(textBox3.Lines[textBox3.Lines.Length - 2]);
+                MessageBox.Show(ende.GetType().ToString());
+            }
+
+            string createText = (button1.Height / 5).ToString() + "%;" + DateTime.Now.TimeOfDay.ToString("hh\\:mm\\:ss") + "; " + DateTime.Now.Day + Environment.NewLine;
+            if (ende.Equals(createText))
+            {
+                MessageBox.Show("schon vorhanden");
+                return;
+            }
             File.AppendAllText(path, createText);
+            button4_Click(sender, e);
         }
 
         private void button4_Click(object sender, EventArgs e)

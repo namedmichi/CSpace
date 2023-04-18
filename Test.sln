@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistik", "Statistik\Statistik.csproj", "{C69B21AF-6119-408A-A367-EB7CFE0190D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zeichnen", "Zeichnen\Zeichnen.csproj", "{FDD73237-8989-406D-B78A-70D14F8604A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{C69B21AF-6119-408A-A367-EB7CFE0190D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C69B21AF-6119-408A-A367-EB7CFE0190D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C69B21AF-6119-408A-A367-EB7CFE0190D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDD73237-8989-406D-B78A-70D14F8604A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD73237-8989-406D-B78A-70D14F8604A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD73237-8989-406D-B78A-70D14F8604A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD73237-8989-406D-B78A-70D14F8604A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
