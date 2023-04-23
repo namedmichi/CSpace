@@ -146,9 +146,7 @@ namespace Zeichnen
         {
            if( listBox1.SelectedIndex == 0 )
             {
-                MessageBox.Show(listBox1.SelectedIndex.ToString());
-                pen = new Pen(Brushes.Red);
-                pen.Width = 5;
+                pen = new Pen(Brushes.Red);      
             } else if ( listBox1.SelectedIndex == 1 )
             {
                 pen = new Pen(Brushes.Green);
@@ -191,11 +189,6 @@ namespace Zeichnen
             clicks = 0;
         }
 
-        private void Form1_ClientSizeChanged(object sender, EventArgs e)
-        {
-            
-            Thread.Sleep(2000); 
-            Form1.ActiveForm.ClientSize = new Size(this.width, this.height);
-        }
+   
     }
 }
