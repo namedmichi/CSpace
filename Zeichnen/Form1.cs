@@ -188,6 +188,7 @@ namespace Zeichnen
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             first = true;
+            clicks = 0;
         }
 
         private void Form1_ClientSizeChanged(object sender, EventArgs e)
