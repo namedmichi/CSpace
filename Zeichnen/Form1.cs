@@ -36,6 +36,7 @@ namespace Zeichnen
         Point Point1;
         Point Point2;
         Point Point3;
+        Point[] last = new Point[2];
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -51,6 +52,8 @@ namespace Zeichnen
                 {
                 start = end;
                 end = new Point(e.X, e.Y);
+                last[0] = start;
+                last[1] = end;
                 g.DrawLine(pen, start, end);
 
                 }
@@ -121,7 +124,7 @@ namespace Zeichnen
               
                     };
 
-                    // Draw polygon to screen.
+                   
                     g.DrawPolygon(pen, curvePoints);
                     clicks = 0;
                 }
@@ -189,6 +192,14 @@ namespace Zeichnen
             clicks = 0;
         }
 
-   
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show("test");
+
+        }
     }
 }
