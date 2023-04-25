@@ -21,6 +21,7 @@ namespace Zeichnen
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -136,39 +137,12 @@ namespace Zeichnen
 
 
         }
-
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
-        private void listBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-           if( listBox1.SelectedIndex == 0 )
-            {
-                pen = new Pen(Brushes.Red);      
-            } else if ( listBox1.SelectedIndex == 1 )
-            {
-                pen = new Pen(Brushes.Green);
-            }else if ( listBox1.SelectedIndex == 2 )
-            {
-                pen = new Pen(Brushes.Black);
-            }
-            else
-            {
-                pen = new Pen(Brushes.Blue);
-            }
-
-        }
-
-        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
+   
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if(textBox1.Text.Length <= 0)
@@ -192,13 +166,23 @@ namespace Zeichnen
             clicks = 0;
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+
+
+        private void button1_Click(object sender, EventArgs e)
         {
+            g.DrawLine(Pens.White, start, end);
+            end = start;
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show("test");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+                colorDialog1.ShowDialog();
+                pen.Color = colorDialog1.Color;
 
         }
     }
