@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Zeichnen
@@ -21,7 +14,7 @@ namespace Zeichnen
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,7 +34,7 @@ namespace Zeichnen
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            if ( listBox2.SelectedIndex == 0)
+            if (listBox2.SelectedIndex == 0)
             {
                 if (first)
                 {
@@ -49,20 +42,21 @@ namespace Zeichnen
                     start = end;
                     first = false;
                 }
-                if(e.Button == MouseButtons.Left)
+                if (e.Button == MouseButtons.Left)
                 {
-                start = end;
-                end = new Point(e.X, e.Y);
-                last[0] = start;
-                last[1] = end;
-                g.DrawLine(pen, start, end);
+                    start = end;
+                    end = new Point(e.X, e.Y);
+                    last[0] = start;
+                    last[1] = end;
+                    g.DrawLine(pen, start, end);
 
                 }
-                if(e.Button == MouseButtons.Right)
+                if (e.Button == MouseButtons.Right)
                 {
-                    first  = true;
+                    first = true;
                 }
-            }else if ( listBox2.SelectedIndex == 1)
+            }
+            else if (listBox2.SelectedIndex == 1)
             {
                 if (first)
                 {
@@ -73,7 +67,7 @@ namespace Zeichnen
                     return;
 
                 }
-                if  (clicks == 1)
+                if (clicks == 1)
                 {
                     width = e.X - x;
                     if (width < 0)
@@ -84,7 +78,7 @@ namespace Zeichnen
                     clicks++;
                     return;
                 }
-                if(clicks == 2)
+                if (clicks == 2)
                 {
                     height = e.Y - y;
                     if (height < 0)
@@ -92,13 +86,14 @@ namespace Zeichnen
                         height = height * -1;
                         y -= height;
                     }
-                    g.DrawRectangle(pen, x, y, width, height); 
+                    g.DrawRectangle(pen, x, y, width, height);
                     first = true;
                     clicks = 0;
                 }
-            }else if ( listBox2.SelectedIndex == 2)
+            }
+            else if (listBox2.SelectedIndex == 2)
             {
-                if ( clicks == 0)
+                if (clicks == 0)
                 {
 
                     Point1 = new Point(e.X, e.Y);
@@ -115,23 +110,23 @@ namespace Zeichnen
                 if (clicks == 2)
                 {
 
-                    Point3 = new Point(e.X, e.Y);       
+                    Point3 = new Point(e.X, e.Y);
                     Point[] curvePoints =
                                      {
                                  Point1,
                                  Point2,
                                  Point3
-            
-              
+
+
                     };
 
-                   
+
                     g.DrawPolygon(pen, curvePoints);
                     clicks = 0;
                 }
 
 
-        
+
 
             }
 
@@ -142,19 +137,19 @@ namespace Zeichnen
         }
 
 
-   
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length <= 0)
+            if (textBox1.Text.Length <= 0)
             {
                 return;
             }
             try
             {
-            pen.Width = int.Parse(textBox1.Text);
+                pen.Width = int.Parse(textBox1.Text);
 
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Nur Zahlen!!!");
             }
@@ -181,8 +176,8 @@ namespace Zeichnen
 
         private void button2_Click(object sender, EventArgs e)
         {
-                colorDialog1.ShowDialog();
-                pen.Color = colorDialog1.Color;
+            colorDialog1.ShowDialog();
+            pen.Color = colorDialog1.Color;
 
         }
     }

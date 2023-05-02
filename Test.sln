@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistik", "Statistik\Stat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zeichnen", "Zeichnen\Zeichnen.csproj", "{FDD73237-8989-406D-B78A-70D14F8604A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zeichnen 2", "Zeichnen 2\Zeichnen 2.csproj", "{F44C5139-94B7-4486-9BF6-D34650F44552}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{FDD73237-8989-406D-B78A-70D14F8604A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDD73237-8989-406D-B78A-70D14F8604A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDD73237-8989-406D-B78A-70D14F8604A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44C5139-94B7-4486-9BF6-D34650F44552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44C5139-94B7-4486-9BF6-D34650F44552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44C5139-94B7-4486-9BF6-D34650F44552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44C5139-94B7-4486-9BF6-D34650F44552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
