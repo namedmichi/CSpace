@@ -13,7 +13,8 @@ namespace Zeichnen_2
     public partial class Form1 : Form
     {
         Graphics g;
-        bool mouseIsDown;
+        bool mouseRIsDown;
+        bool mouseLIsDown;
         int lastx = 0;
         int lasty = 0;
         Pen pen = new Pen(Brushes.Black, 2);
@@ -29,7 +30,7 @@ namespace Zeichnen_2
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseIsDown)
+            if (mouseRIsDown)
             {
                 Point point = this.PointToClient(Cursor.Position);
                 g.FillRectangle(Brushes.Black, point.X, point.Y, 2, 2);
@@ -42,7 +43,22 @@ namespace Zeichnen_2
                 g.DrawLine(pen, point.X, point.Y, lastx, lasty);
                 lastx = point.X;
                 lasty = point.Y;
-               
+
+            }
+            else if ( mouseLIsDown)
+            {
+                Point point = this.PointToClient(Cursor.Position);
+                g.FillRectangle(Brushes.White, point.X, point.Y, 2, 2);
+                if (lastx == 0 && lasty == 0)
+                {
+                    lastx = point.X;
+                    lasty = point.Y;
+                    return;
+                }
+                Pen temppen = new Pen(Brushes.White, 3);
+                g.DrawLine(temppen, point.X, point.Y, lastx, lasty);
+                lastx = point.X;
+                lasty = point.Y;
             }
         }
 
@@ -50,7 +66,11 @@ namespace Zeichnen_2
         {
             if( e.Button == MouseButtons.Left)
             {
-             mouseIsDown = true;
+             mouseRIsDown = true;
+            }
+            else
+            {
+                mouseLIsDown = true;
             }
         }
 
@@ -58,7 +78,13 @@ namespace Zeichnen_2
         {
             if (e.Button == MouseButtons.Left)
             {
-                mouseIsDown = false;
+                mouseRIsDown = false;
+                lastx = 0;
+                lasty = 0;
+            }
+            else
+            {
+                mouseLIsDown = true;
                 lastx = 0;
                 lasty = 0;
             }
