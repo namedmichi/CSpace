@@ -48,14 +48,14 @@ namespace Zeichnen_2
             else if ( mouseLIsDown)
             {
                 Point point = this.PointToClient(Cursor.Position);
-                g.FillRectangle(Brushes.White, point.X, point.Y, 2, 2);
+                g.FillRectangle(Brushes.White, point.X, point.Y, 6, 6);
                 if (lastx == 0 && lasty == 0)
                 {
                     lastx = point.X;
                     lasty = point.Y;
                     return;
                 }
-                Pen temppen = new Pen(Brushes.White, 3);
+                Pen temppen = new Pen(Brushes.White, 6);
                 g.DrawLine(temppen, point.X, point.Y, lastx, lasty);
                 lastx = point.X;
                 lasty = point.Y;
@@ -84,7 +84,7 @@ namespace Zeichnen_2
             }
             else
             {
-                mouseLIsDown = true;
+                mouseLIsDown = false;
                 lastx = 0;
                 lasty = 0;
             }
