@@ -114,8 +114,9 @@ namespace Zeichnen_2
             }
             catch
             {
-                bitmap.Dispose();
-                bitmap.Save("C:\\Users\\selbertinger\\Desktop\\workspaces\\CSpace\\Zeichnen\\test.jpg", ImageFormat.Jpeg);
+                
+          
+                bitmap.Save("C:\\Users\\selbertinger\\Desktop\\workspaces\\CSpace\\Zeichnen\\test2.jpg", ImageFormat.Jpeg);
          
             }
         }
