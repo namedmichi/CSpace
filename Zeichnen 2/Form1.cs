@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace Zeichnen_2
         int lastx = 0;
         int lasty = 0;
         Pen pen = new Pen(Brushes.Black, 2);
+        Bitmap bmp;
+        string Filename;
         public Form1()
         {
             InitializeComponent();
@@ -109,23 +112,50 @@ namespace Zeichnen_2
             try
             {
 
-            bitmap.Save("C:\\Users\\selbertinger\\Desktop\\workspaces\\CSpace\\Zeichnen\\test.jpg", ImageFormat.Jpeg);
+                var ret = saveFileDialog1.ShowDialog();
+                if (ret.ToString() == "cancel") return;
+                bitmap.Save(saveFileDialog1.FileName, ImageFormat.Jpeg);
                 
             }
             catch
             {
                 
           
-                bitmap.Save("C:\\Users\\selbertinger\\Desktop\\workspaces\\CSpace\\Zeichnen\\test2.jpg", ImageFormat.Jpeg);
+              
          
             }
         }
 
         private void öffnenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bitmap = new Bitmap("C:\\Users\\selbertinger\\Desktop\\workspaces\\CSpace\\Zeichnen\\test.jpg");
-            pictureBox1.Image = bitmap;
-            g = Graphics.FromImage(bitmap);
+            openFileDialog1.FileName = "";
+            var ret = openFileDialog1.ShowDialog();
+            if (ret.ToString() == "Cancel") return;
+            Filename = openFileDialog1.FileName.ToString();
+            bmp = Streaming(openFileDialog1.FileName);
+            pictureBox1.Image = bmp;
+            g = Graphics.FromImage(bmp);
+
+
+
+
+        }
+        private Bitmap Streaming(string FileName)
+        {
+            MemoryStream memstream;
+            FileStream fs = new FileStream(FileName, FileMode.Open);
+            Byte[] buffer = new byte[fs.Length];
+            fs.Read(buffer, 0, buffer.Length);
+            fs.Close();
+            memstream = new MemoryStream(buffer);
+            fs.Dispose();
+            return (new Bitmap(memstream));
+        }
+
+        private void neuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            g.Clear(Color.White);
+            pictureBox1.Image = bmp;
         }
     }
 }

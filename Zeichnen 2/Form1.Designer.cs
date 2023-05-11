@@ -32,6 +32,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +54,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.speichernToolStripMenuItem,
-            this.öffnenToolStripMenuItem});
+            this.öffnenToolStripMenuItem,
+            this.neuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -71,6 +75,21 @@
             this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.öffnenToolStripMenuItem.Text = "öffnen";
             this.öffnenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "o";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.neuToolStripMenuItem.Text = "neu";
+            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -97,6 +116,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem öffnenToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
     }
 }
 
