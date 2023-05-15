@@ -95,8 +95,6 @@ namespace GRID
             int mouseY = e.Y;
             var xpos = (width / x);
             var ypos = height / y;
-            var xposfix = xpos;
-            var yposfix = ypos;
             var sectorx = mouseX / xpos;
             var sectory = mouseY / ypos;
             g.FillRectangle(Brushes.Black, sectorx * xpos, sectory * ypos, xpos, ypos);
