@@ -18,7 +18,10 @@ namespace GRID
         {
             InitializeComponent();
         }
-
+        int x;
+        int y;
+        int height;
+        int width;
         private void Form1_Resize(object sender, EventArgs e)
         {
         
@@ -29,10 +32,10 @@ namespace GRID
             g.Clear(Color.White);
             g = pictureBox1.CreateGraphics();
             Pen pen = new Pen(Color.Black, 5);
-            var x = int.Parse(textBox1.Text);
-            var y = int.Parse(textBox2.Text);
-            var width = pictureBox1.Width;
-            var height = pictureBox1.Height;
+            x = int.Parse(textBox1.Text);
+            y = int.Parse(textBox2.Text);
+            width = pictureBox1.Width;
+            height = pictureBox1.Height;
             var xpos = (width / x);
             var ypos = height / y;
             var xposfix = xpos;
@@ -56,10 +59,10 @@ namespace GRID
         {
             g = pictureBox1.CreateGraphics();
             Pen pen = new Pen(Color.Black, 5);
-            var x =  int.Parse( textBox1.Text);
-            var y = int.Parse(textBox2.Text);
-            var width = pictureBox1.Width;
-            var height = pictureBox1.Height;
+            x =  int.Parse( textBox1.Text);
+            y = int.Parse(textBox2.Text);
+            width = pictureBox1.Width;
+            height = pictureBox1.Height;
             var xpos = (width/x);
             var ypos = height / y;
             var xposfix = xpos;
@@ -83,6 +86,20 @@ namespace GRID
         private void Form1_Load(object sender, EventArgs e)
         {
             bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int mouseX = e.X;
+            int mouseY = e.Y;
+            var xpos = (width / x);
+            var ypos = height / y;
+            var xposfix = xpos;
+            var yposfix = ypos;
+            var sectorx = mouseX / xpos;
+            var sectory = mouseY / ypos;
+            g.FillRectangle(Brushes.Black, sectorx * xpos, sectory * ypos, xpos, ypos);
         }
     }
 }
