@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +16,7 @@ namespace GRID
     {
         Graphics g;
         Bitmap bmp;
+        float Fontsize = 12.1F; 
         public Form1()
         {
             InitializeComponent();
@@ -55,25 +58,17 @@ namespace GRID
             }
  
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void drawGrid()
         {
-            g = pictureBox1.CreateGraphics();
             Pen pen = new Pen(Color.Black, 5);
-            x = int.Parse(textBox1.Text);
-            y = int.Parse(textBox2.Text);
-            width = pictureBox1.Width;
-            height = pictureBox1.Height;
             var xpos = (width / x);
             var ypos = height / y;
             var xposfix = xpos;
             var yposfix = ypos;
-            array = new int[x, y];
-            g.DrawLine(pen, new Point(1, 1), new Point(width, 1));
             for (int i = 0; i < x; i++)
             {
 
-                g.DrawLine(pen, new Point(xpos, 1), new Point(xpos, height) );
+                g.DrawLine(pen, new Point(xpos, 1), new Point(xpos, height));
                 xpos = xpos + xposfix;
             }
             for (int i = 0; i < y; i++)
@@ -82,7 +77,37 @@ namespace GRID
                 g.DrawLine(pen, new Point(1, ypos), new Point(width, ypos));
                 ypos = ypos + yposfix;
             }
-           for (int i = 0; i < y; i++)
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            g.Clear(Color.White);
+            }catch (Exception ex)
+            {
+
+            }
+            g = pictureBox1.CreateGraphics();
+            Pen pen = new Pen(Color.Black, 5);
+            x = int.Parse(textBox1.Text);
+            y = int.Parse(textBox2.Text);
+            width = pictureBox1.Width;
+            height = pictureBox1.Height;
+            array = new int[x, y];
+            g.DrawLine(pen, new Point(1, 1), new Point(width, 1));
+            var xpos = (width / x);
+            var ypos = height / y;
+            var xposfix = xpos;
+            var yposfix = ypos;
+            for (int i = 0; i < x; i++)
+            {
+
+                g.DrawLine(pen, new Point(xpos, 1), new Point(xpos, height) );
+                xpos = xpos + xposfix;
+            }
+            for (int i = 0; i < y; i++)
             {
 
                 g.DrawLine(pen, new Point(1, ypos), new Point(width, ypos));
@@ -105,18 +130,60 @@ namespace GRID
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            int mouseX = e.X;
+            if(e.Button == MouseButtons.Right)
+            {
+                int mouseX = e.X;
+                int mouseY = e.Y;
+                var xpos = (width / x);
+                var ypos = height / y;
+                var Pointx = e.X / xpos;
+                var Pointy = e.Y / ypos;
+                sectorx = mouseX / xpos;
+                sectory = mouseY / ypos;
+                Fontsize = 12 + array[Pointx, Pointy] / 10;
+                if (array[Pointx, Pointy] == 0)
+                {
+
+                    return;
+                }
+                if (array[Pointx, Pointy] <= 0)
+                {
+                    g.FillRectangle(Brushes.Black, Pointx * xpos, Pointy * ypos, xpos, ypos);
+                    g.DrawString(array[Pointx, Pointy].ToString(), new Font("Arial", Fontsize), Brushes.White, new Point((Pointx * xpos) - 10 + xpos / 2, (Pointy * ypos) - 10 + ypos / 2));
+                    drawGrid();
+                    return;
+                }
+                array[Pointx, Pointy]--;
+                if (array[Pointx, Pointy] > 0)
+                {
+                    g.FillRectangle(Brushes.Black, Pointx * xpos, Pointy * ypos, xpos, ypos);
+                    g.DrawString(array[Pointx, Pointy].ToString(), new Font("Arial", Fontsize), Brushes.White, new Point((Pointx * xpos) - 10 + xpos / 2, (Pointy * ypos) - 10 + ypos / 2));
+                    counter--;
+                    drawGrid();
+                    return;
+                }
+                counter--;
+        
+                points.RemoveAt(counter);
+                drawGrid();
+            }
+            if(e.Button == MouseButtons.Left)
+            {
+                int mouseX = e.X;
             int mouseY = e.Y;
             var xpos = (width / x);
             var ypos = height / y;
             sectorx = mouseX / xpos;
             sectory = mouseY / ypos;
+            Fontsize = 12 + array[sectorx, sectory] / 12;
             lastPoint = new Point(sectorx * xpos, sectory * ypos);
             points.Add(lastPoint);
             array[sectorx,sectory]++;
             g.FillRectangle(Brushes.Black, sectorx * xpos, sectory * ypos, xpos, ypos);
-            g.DrawString(array[sectorx,sectory].ToString(), new Font("Arial", 12), Brushes.White, new Point((sectorx * xpos)- 10+ xpos/2, (sectory * ypos)- 10 + ypos/2));
+            g.DrawString(array[sectorx,sectory].ToString(), new Font("Arial", Fontsize), Brushes.White, new Point((sectorx * xpos)- 10+ xpos/2, (sectory * ypos)- 10 + ypos/2));
             counter++;
+            }
+  
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -138,18 +205,7 @@ namespace GRID
             counter--;
             g.FillRectangle(Brushes.White, Pointx * xpos, Pointy * ypos, xpos, ypos);
             points.RemoveAt(counter);
-            for (int i = 0; i < x; i++)
-            {
-
-                g.DrawLine(new Pen(Color.Black, 5), new Point(xpos, 1), new Point(xpos, height));
-                xpos = xpos + xposfix;
-            }
-            for (int i = 0; i < y; i++)
-            {
-
-                g.DrawLine(new Pen(Color.Black, 5), new Point(1, ypos), new Point(width, ypos));
-                ypos = ypos + yposfix;
-            }
+            drawGrid();
         }
     }
 }
