@@ -46,10 +46,10 @@ namespace _2022AS3
 
                 second = e.Location;
                 g.DrawLine(pen, first, second);
-                
                 secondlast = e.Location;
                 Pen backpen = new Pen(this.BackColor, 2);
                 g.DrawLine(backpen, fistlast, secondlast);
+                
                 
             }
         }

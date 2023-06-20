@@ -93,10 +93,14 @@ namespace Zeichnen
             }
             else if (listBox2.SelectedIndex == 2)
             {
+                Point last1 = new Point(0, 0);
+                Point last2 = new Point(0, 0);
                 if (clicks == 0)
                 {
 
                     Point1 = new Point(e.X, e.Y);
+                    g.DrawEllipse(Pens.Black, e.X, e.Y, 5, 5);
+                  
                     clicks++;
                     return;
                 }
@@ -104,6 +108,8 @@ namespace Zeichnen
                 {
 
                     Point2 = new Point(e.X, e.Y);
+                    g.DrawEllipse(Pens.Black, e.X, e.Y, 5, 5);
+                   
                     clicks++;
                     return;
                 }
@@ -119,8 +125,8 @@ namespace Zeichnen
 
 
                     };
-
-
+                    g.DrawEllipse(Pens.White, Point1.X, Point1.Y, 5, 5);
+                    g.DrawEllipse(Pens.White, Point2.X, Point2.Y, 5, 5);
                     g.DrawPolygon(pen, curvePoints);
                     clicks = 0;
                 }
