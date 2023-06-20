@@ -15,8 +15,10 @@ namespace _2022AS3
         Graphics g;
         Point first;
         Point second;
+        Point fistlast;
+        Point secondlast;
         Pen pen = new Pen(Color.Black, 2);
-        Boolean drawing;
+        Boolean drawing = false;
         public Form1()
         {
             InitializeComponent();
@@ -26,12 +28,30 @@ namespace _2022AS3
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             first = e.Location;
+            fistlast = e.Location;
+            drawing = true;
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
+            drawing = false;
             second = e.Location;
             g.DrawLine(pen, first, second);
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(drawing)
+            {
+
+                second = e.Location;
+                g.DrawLine(pen, first, second);
+
+                secondlast = e.Location;
+                Pen backpen = new Pen(this.BackColor, 2);
+                g.DrawLine(backpen, fistlast, secondlast);
+                
+            }
         }
     }
 }
