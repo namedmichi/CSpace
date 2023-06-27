@@ -41,8 +41,8 @@ namespace KlausurTest
                 firstX = false;
                 return;
             }
-            g.DrawLine(pen, startPo, new Point(fixX, e.Y)); 
-
+            g.DrawLine(pen, startPo, new Point(fixX, e.Y));
+            
         }
     }
 }
